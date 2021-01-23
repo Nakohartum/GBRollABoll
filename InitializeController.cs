@@ -11,10 +11,10 @@ namespace Game
     public class InitializeController 
     {
 
-        public InitializeController(MainController mainController, PlayerData playerData, GoodBonusData goodBonusData)
+        public InitializeController(MainController mainController, PlayerData playerData, List<GoodBonusData> goodBonusDatas)
         {
             new PlayerInitializator(mainController, playerData);
-            new GoodBonusInitializator(mainController, goodBonusData);
+            new GoodBonusInitializator(mainController, goodBonusDatas);
 
         }
 

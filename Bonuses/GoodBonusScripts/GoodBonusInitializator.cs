@@ -1,22 +1,25 @@
-﻿using Game;
+﻿using System.Collections.Generic;
+using Game;
 using UnityEngine;
 
 namespace Bonuses
 {
     public class GoodBonusInitializator
     {
-        public GoodBonusInitializator(MainController mainController, GoodBonusData goodBonusData)
+        public GoodBonusInitializator(MainController mainController, List<GoodBonusData> goodBonusDatas)
         {
-            var bonus = Object.Instantiate(goodBonusData.GoodBonusStruct.Bonus,
-                goodBonusData.GoodBonusStruct.SpawnPosition, Quaternion.identity);
+            foreach (var goodBonusData in goodBonusDatas)
+            {
+                var spawnedBonus = Object.Instantiate(goodBonusData.GoodBonusStruct.BonusStruct.Bonus,
+                    goodBonusData.GoodBonusStruct.BonusStruct.SpawnPosition, Quaternion.identity);
 
-            var bonusStruct = goodBonusData.GoodBonusStruct;
-            bonusStruct.Bonus = bonus;
+                var bonusStruct = goodBonusData.GoodBonusStruct;
+                bonusStruct.BonusStruct.Bonus = spawnedBonus;
 
-            var bonusModel = new GoodBonusHealerModel(bonusStruct);
-            mainController.AddUpdatable(new GoodBonusHealerController(bonusModel));
+                var goodBonusModel = new GoodBonusModel(bonusStruct);
             
-            
+                mainController.AddUpdatable(new GoodBonusController(goodBonusModel));
+            }
         }
     }
 }

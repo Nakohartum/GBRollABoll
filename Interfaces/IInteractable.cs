@@ -1,15 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using GameObjects.Player;
 
 namespace Interfaces
 {
-    interface IInteractable
+    public interface IInteractable
     {
-
-        void Interact();
-
+        void Interact(PlayerModel playerModel);
     }
 }

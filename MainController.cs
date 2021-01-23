@@ -15,7 +15,7 @@ namespace Game
         #region Fields
 
         [SerializeField] private PlayerData _playerData;
-        [SerializeField] private GoodBonusData _goodBonusData;
+        [SerializeField] private List<GoodBonusData> _goodBonusData;
         private List<IUpdatable> updatables = new List<IUpdatable>();
 
         #endregion

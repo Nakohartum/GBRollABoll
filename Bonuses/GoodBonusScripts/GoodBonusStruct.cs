@@ -1,11 +1,18 @@
 ﻿using System;
 
+
 namespace Bonuses
 {
     [Serializable]
-    public class GoodBonusStruct : BonusStruct
+    public struct GoodBonusStruct
     {
-        public float Speed;
-        public float HpGiven;
+        public enum GoodBonusTypes
+        {
+            Healer, Speeder
+        }
+        public BonusStruct BonusStruct;
+        public float HPGive;
+        public float SpeedGive;
+        public GoodBonusTypes GoodBonusType;
     }
 }

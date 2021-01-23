@@ -1,6 +1,6 @@
 ﻿namespace Bonuses
 {
-    public abstract class GoodBonusModel
+    public class GoodBonusModel
     {
         public GoodBonusStruct GoodBonusStruct;
 
